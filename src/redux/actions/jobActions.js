@@ -4,7 +4,7 @@ import axios from "axios";
 export const getAllJobs = () => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
     try {
-        const response = await axios.get("/api/jobs/getalljobs")
+        const response = await axios.get("http://localhost:4000/api/jobs/getalljobs")
         dispatch({ type: 'GET_ALL_JOBS', payload: response.data })
         dispatch({ type: 'LOADING', payload: false })
     } catch (error) {
@@ -17,7 +17,7 @@ export const postJobs = (values) => async dispatch => {
     values.postedBy = JSON.parse(localStorage.getItem('user'))._id
     dispatch({ type: 'LOADING', payload: true })
     try {
-        const response = await axios.post("/api/jobs/postjob", values)
+        const response = await axios.post("http://localhost:4000/api/jobs/postjob", values)
 
         dispatch({ type: 'LOADING', payload: false })
         message.success("Job Posted Successfully")
@@ -34,7 +34,7 @@ export const editJobs = (values) => async dispatch => {
 
     dispatch({ type: 'LOADING', payload: true })
     try {
-        const response = await axios.post("/api/jobs/editjob", values)
+        const response = await axios.post("http://localhost:4000/api/jobs/editjob", values)
 
         dispatch({ type: 'LOADING', payload: false })
         message.success("Job Edited Successfully")
@@ -53,7 +53,7 @@ export const applyJobs = (job) => async dispatch => {
 
     dispatch({ type: 'LOADING', payload: true })
     try {
-        const response = await axios.post("/api/jobs/applyjob", { job, user })
+        const response = await axios.post("http://localhost:4000/api/jobs/applyjob", { job, user })
 
         dispatch({ type: 'LOADING', payload: false })
         message.success("Job Applied Successfully")
@@ -69,7 +69,7 @@ export const applyJobs = (job) => async dispatch => {
 export const searchJobs = (searchKey) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
     try {
-        const response = await axios.get("/api/jobs/getalljobs")
+        const response = await axios.get("http://localhost:4000/api/jobs/getalljobs")
         const jobs = response.data
         const filteredJobs = jobs.filter((job) => job.title.toLowerCase().includes(searchKey.toLowerCase()))
         dispatch({ type: 'GET_ALL_JOBS', payload: filteredJobs })
@@ -83,7 +83,7 @@ export const searchJobs = (searchKey) => async dispatch => {
 export const filterJobs = (values) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
     try {
-        const response = await axios.get("/api/jobs/getalljobs")
+        const response = await axios.get("http://localhost:4000/api/jobs/getalljobs")
         const jobs = response.data
         var filteredJobs = jobs
         if (values.experience !== undefined) {
