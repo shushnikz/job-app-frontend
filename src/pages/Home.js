@@ -21,7 +21,7 @@ function Home() {
     <div>
       <DefaultLayout>
         <Row gutter={16}>
-          {jobs.map((job) => {
+          { jobs && jobs.map((job) => {
             return <Col lg={12} sm={24}>
               <div className="job-div bs m-2 p-2">
                 <h4>{job.title}</h4>
