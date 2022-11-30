@@ -10,12 +10,15 @@ import {
   PlusSquareOutlined
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { Button, Layout, Menu } from 'antd';
+import { Layout, Menu } from 'antd';
 import Filter from './Filter';
 const { Header, Sider, Content } = Layout;
 const DefaultLayout = (props) => {
+  console.log(props)
   const [collapsed, setCollapsed] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"))
+  console.log(user)
+  
 
 
   const logout = () => {
@@ -77,7 +80,7 @@ const DefaultLayout = (props) => {
               <Filter />
             </div>
             <div style={{ display: collapsed ? "none" : "inline" }}>
-              {/* <h5 className="me-2"><b>{user.username}</b></h5> */}
+              <h5 className="me-2"><b>{user.username}</b></h5>
             </div>
           </div>
 

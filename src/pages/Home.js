@@ -10,6 +10,9 @@ function Home() {
   const { jobs } = useSelector((state) => state.jobsReducer)
   const dispatch = useDispatch()
 
+  const user = JSON.parse(localStorage.getItem("user"))
+  console.log("hello")
+
   useEffect(() => {
     dispatch(getAllJobs())
   }, [])
@@ -42,6 +45,7 @@ function Home() {
 
       </DefaultLayout>
     </div>
+    
   )
 }
 

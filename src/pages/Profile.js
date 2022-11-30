@@ -1,5 +1,5 @@
 import { Button, Col, Form, Input, Row, Tabs } from 'antd'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import DefaultLayout from '../components/DefaultLayout'
 import { updateUser } from '../redux/actions/userActions';
@@ -25,6 +25,7 @@ function Profile() {
   }
 
   const user = JSON.parse(localStorage.getItem('user'))
+  
   return (
     <div>
       <DefaultLayout>

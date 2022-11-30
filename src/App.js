@@ -26,6 +26,8 @@ function App() {
     dispatch(getAllUsers())
   }, [])
 
+  console.log(JSON.parse(localStorage.getItem('user')))
+  
   return (
     <div className="App">
       {loader && (<div className="sweet-loading text-center">
