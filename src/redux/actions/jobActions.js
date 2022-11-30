@@ -4,7 +4,7 @@ import axios from "axios";
 export const getAllJobs = () => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
     try {
-        const response = await axios.get("/api/jobs/getalljobs")
+        const response = await axios.get("http://localhost:4000/api/jobs/getalljobs")
         dispatch({ type: 'GET_ALL_JOBS', payload: response.data })
         dispatch({ type: 'LOADING', payload: false })
     } catch (error) {
