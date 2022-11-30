@@ -59,6 +59,9 @@ const DefaultLayout = (props) => {
           <Menu.Item key="/logout" icon={<LogoutOutlined />}>
             <Link onClick={logout}>Logout</Link>
           </Menu.Item>
+          <Menu.Item key="/login" icon={<LogoutOutlined />}>
+            <Link to="/login">Login</Link>
+          </Menu.Item>
         </Menu>
       </Sider>
       <Layout className="site-layout">
