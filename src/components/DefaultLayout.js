@@ -80,7 +80,7 @@ const DefaultLayout = (props) => {
               <Filter />
             </div>
             <div style={{ display: collapsed ? "none" : "inline" }}>
-              <h5 className="me-2"><b>{user.username}</b></h5>
+              {user && (<h5 className="me-2"><b>{user.username}</b></h5>)}
             </div>
           </div>
 
