@@ -7,7 +7,8 @@ import {
   PlusOutlined,
   CheckCircleOutlined,
   LogoutOutlined,
-  PlusSquareOutlined
+  PlusSquareOutlined,
+  LoginOutlined
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
@@ -59,7 +60,7 @@ const DefaultLayout = (props) => {
           <Menu.Item key="/logout" icon={<LogoutOutlined />}>
             <Link onClick={logout}>Logout</Link>
           </Menu.Item>
-          <Menu.Item key="/login" icon={<LogoutOutlined />}>
+          <Menu.Item key="/login" icon={<LoginOutlined />}>
             <Link to="/login">Login</Link>
           </Menu.Item>
         </Menu>
