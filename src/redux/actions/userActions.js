@@ -4,7 +4,7 @@ import axios from "axios";
 export const registerUser = (values) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
     try {
-        await axios.post("http://localhost:4000/api/users/register", values)
+        await axios.post("https://find-job-app-backend.herokuapp.com/api/users/register", values)
         message.success("User Registered Successfully")
         setTimeout(() => {
             window.location.href = "/login"
@@ -19,7 +19,7 @@ export const registerUser = (values) => async dispatch => {
 export const loginUser = (values) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
     try {
-        const user = await axios.post("http://localhost:4000/api/users/login", values)
+        const user = await axios.post("https://find-job-app-backend.herokuapp.com/api/users/login", values)
         message.success("Login Successfully")
         localStorage.setItem('user', JSON.stringify(user.data))
         setTimeout(() => {
@@ -37,7 +37,7 @@ export const updateUser = (values) => async dispatch => {
     values._id = userId
     dispatch({ type: 'LOADING', payload: true })
     try {
-        const user = await axios.post("http://localhost:4000/api/users/update", values)
+        const user = await axios.post("https://find-job-app-backend.herokuapp.com/api/users/update", values)
         message.success("Updated Successfully")
         localStorage.setItem('user', JSON.stringify(user.data))
         setTimeout(() => {
@@ -53,7 +53,7 @@ export const updateUser = (values) => async dispatch => {
 export const getAllUsers = () => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
     try {
-        const response = await axios.get("http://localhost:4000/api/users/getallusers")
+        const response = await axios.get("https://find-job-app-backend.herokuapp.com/api/users/getallusers")
         dispatch({ type: 'GET_ALL_USERS', payload: response.data })
         dispatch({ type: 'LOADING', payload: false })
     } catch (error) {
