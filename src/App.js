@@ -1,12 +1,12 @@
 import './App.css';
 import Home from './pages/Home';
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import AppliedJob from './pages/AppliedJob';
 import PostJob from './pages/PostJob';
 import Profile from './pages/Profile';
 import JobInfo from './pages/JobInfo';
 import FadeLoader from "react-spinners/FadeLoader";
-import { CSSProperties, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllJobs } from './redux/actions/jobActions';
 import Login from './pages/Login';
@@ -18,6 +18,7 @@ import Userinfo from './pages/Userinfo';
 
 function App() {
   const { loader } = useSelector((state) => state.loaderReducer)
+  const { users } = useSelector((state) => state.usersReducer)
 
   const dispatch = useDispatch()
 
@@ -26,8 +27,7 @@ function App() {
     dispatch(getAllUsers())
   }, [])
 
-  console.log(JSON.parse(localStorage.getItem('user')))
-  
+
   return (
     <div className="App">
       {loader && (<div className="sweet-loading text-center">
@@ -38,10 +38,14 @@ function App() {
       </div>)}
 
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} /> 
+        <Route path="/" element={<Home />} />
+        
+        
+        
         <Route path="/register" element={<Register />} />
 
-        <Route path="/" element={<Home />} />
+        
         <Route path="/appliedjobs" element={<AppliedJob />} />
         <Route path="/postjob" element={<PostJob />} />
         <Route path="/profile" element={<Profile />} />
