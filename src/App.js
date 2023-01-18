@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './pages/Home';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import AppliedJob from './pages/AppliedJob';
 import PostJob from './pages/PostJob';
 import Profile from './pages/Profile';
@@ -38,27 +38,33 @@ function App() {
       </div>)}
 
       <Routes>
-        <Route path="/login" element={<Login />} /> 
-        <Route path="/" element={<Home />} />
-        
-        
-        
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        
-        <Route path="/appliedjobs" element={<AppliedJob />} />
-        <Route path="/postjob" element={<PostJob />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/jobs/:id" element={<JobInfo />} />
 
-        <Route path="/posted" element={<Postedjobs />} />
-        <Route path="/editjob/:id" element={<Editjob />} />
-        <Route path="/users/:id" element={<Userinfo />} />
+        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="/appliedjobs" element={<ProtectedRoute><AppliedJob /></ProtectedRoute>} />
+        <Route path="/postjob" element={<ProtectedRoute><PostJob /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/jobs/:id" element={<ProtectedRoute><JobInfo /></ProtectedRoute>} />
+
+        <Route path="/posted" element={<ProtectedRoute><Postedjobs /></ProtectedRoute>} />
+        <Route path="/editjob/:id" element={<ProtectedRoute><Editjob /></ProtectedRoute>} />
+        <Route path="/users/:id" element={<ProtectedRoute><Userinfo /></ProtectedRoute>} />
       </Routes>
     </div>
   );
 }
 
 export default App;
+
+export function ProtectedRoute(props) {
+  if (!localStorage.getItem("job-app-users")) {
+    return props.children
+  } else {
+    return <Navigate to="/login" />
+  }
+}
+
 
 
