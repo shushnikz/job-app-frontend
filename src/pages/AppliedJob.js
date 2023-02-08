@@ -1,4 +1,5 @@
 import { Table } from 'antd'
+import moment from 'moment'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import DefaultLayout from '../components/DefaultLayout'
@@ -10,15 +11,16 @@ function AppliedJob() {
 
   for (var job of jobs) {
     var appliedCandidates = job.appliedCandidates
-    var temp = appliedCandidates.find((candidate) => candidate.userid == user._id)
+    var temp = appliedCandidates.find((candidate) => candidate.userid === user._id)
     if (temp) {
-      var jobobj = {
+      var obj = {
         title: job.title,
         company: job.company,
-        aplliedDate: temp.aplliedDate
+        aplliedDate: moment(job.appliedDate).format('MMM-DD-YYYY'),
       }
-      userAppliedJobs.push(jobobj)
+      userAppliedJobs.push(obj)
     }
+
   }
 
   const columns = [

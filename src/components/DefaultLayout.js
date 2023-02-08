@@ -4,11 +4,8 @@ import {
   MenuUnfoldOutlined,
   UserOutlined,
   HomeOutlined,
-  PlusOutlined,
   CheckCircleOutlined,
   LogoutOutlined,
-  PlusSquareOutlined,
-  LoginOutlined
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
@@ -19,7 +16,7 @@ const DefaultLayout = (props) => {
   const [collapsed, setCollapsed] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"))
   console.log(user)
-  
+
 
 
   const logout = () => {
@@ -51,17 +48,8 @@ const DefaultLayout = (props) => {
           <Menu.Item key="/appliedjobs" icon={<CheckCircleOutlined />}>
             <Link to='/appliedjobs'>AppliedJobs</Link>
           </Menu.Item>
-          <Menu.Item key="/postjob" icon={<PlusOutlined />}>
-            <Link to='/postjob'>PostJob</Link>
-          </Menu.Item>
-          <Menu.Item key="/posted" icon={<PlusSquareOutlined />}>
-            <Link to='/posted'>Posted Job</Link>
-          </Menu.Item>
           <Menu.Item key="/logout" icon={<LogoutOutlined />}>
             <Link onClick={logout}>Logout</Link>
-          </Menu.Item>
-          <Menu.Item key="/login" icon={<LoginOutlined />}>
-            <Link to="/login">Login</Link>
           </Menu.Item>
         </Menu>
       </Sider>

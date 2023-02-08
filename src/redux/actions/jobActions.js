@@ -22,7 +22,7 @@ export const postJobs = (values) => async dispatch => {
         dispatch({ type: 'LOADING', payload: false })
         message.success("Job Posted Successfully")
         setTimeout(() => {
-            window.location.href = "/"
+            window.location.href = "/posted"
         }, 1000)
     } catch (error) {
         console.log(error)
@@ -39,7 +39,7 @@ export const editJobs = (values) => async dispatch => {
         dispatch({ type: 'LOADING', payload: false })
         message.success("Job Edited Successfully")
         setTimeout(() => {
-            window.location.href = "/"
+            window.location.href = "/posted"
         }, 1000)
     } catch (error) {
         console.log(error)

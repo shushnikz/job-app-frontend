@@ -15,10 +15,10 @@ import Postedjobs from './pages/Postedjobs';
 import Editjob from './pages/Editjob';
 import { getAllUsers } from './redux/actions/userActions';
 import Userinfo from './pages/Userinfo';
+import AdminLogin from './pages/AdminLogin';
 
 function App() {
   const { loader } = useSelector((state) => state.loaderReducer)
-  const { users } = useSelector((state) => state.usersReducer)
 
   const dispatch = useDispatch()
 
@@ -40,6 +40,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/admin" element={<AdminLogin />} />
 
 
         <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />

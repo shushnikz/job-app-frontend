@@ -2,16 +2,16 @@ import { Modal, Table } from 'antd'
 import moment from 'moment'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import DefaultLayout from '../components/DefaultLayout'
 import { EditOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import { Link, useNavigate } from "react-router-dom"
+import DefaultLayout1 from '../components/DefaultLayout1'
 
 
 function Postedjobs() {
 
   const alljobs = useSelector((state) => state.jobsReducer).jobs
   const userid = JSON.parse(localStorage.getItem('user'))._id
-  const userPostedJobs = alljobs.filter((job) => job.postedBy == userid)
+  const userPostedJobs = alljobs.filter((job) => job.postedBy === userid)
   const allusers = useSelector((state) => state.usersReducer).users
   console.log(userPostedJobs)
   const navigate = useNavigate()
@@ -52,7 +52,7 @@ function Postedjobs() {
     var candidatesDataSource = []
 
     for (var candidate of selectedJob.appliedCandidates) {
-      var user = allusers.find((user) => user._id == candidate.jobid)
+      var user = allusers.find((user) => user._id === candidate.jobid)
       var obj = {
         candidateId: user._id,
         fullname: user.firstName + " " + user.lastName,
@@ -109,7 +109,7 @@ function Postedjobs() {
   }
   return (
     <div>
-      <DefaultLayout>
+      <DefaultLayout1>
         <h1>Posted Jobs</h1>
         <Table columns={columns} dataSource={dataSource} />
         <Modal
@@ -121,7 +121,7 @@ function Postedjobs() {
           width={800}>
           <CandidatesList />
         </Modal>
-      </DefaultLayout>
+      </DefaultLayout1>
     </div>
   )
 }

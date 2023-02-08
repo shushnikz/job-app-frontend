@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Button, Col, Form, Input, Row, Select, Tabs } from 'antd'
-import DefaultLayout from '../components/DefaultLayout'
 import { Option } from 'antd/es/mentions';
 import { useDispatch, useSelector } from 'react-redux';
 import { editJobs } from '../redux/actions/jobActions';
 import { useParams } from 'react-router-dom';
+import DefaultLayout1 from '../components/DefaultLayout1';
 const { TextArea } = Input;
 const { TabPane } = Tabs;
 
@@ -33,7 +33,7 @@ function Editjob({ match }) {
 
   return (
     <div>
-      <DefaultLayout>
+      <DefaultLayout1>
         <Tabs defaultActiveKey='0' activeKey={activeTab}>
           <TabPane tab="Job Info" key="0">
             <Form layout="vertical" onFinish={onFirstFormFinish} initialValues={job}>
@@ -128,7 +128,7 @@ function Editjob({ match }) {
             </Form>
           </TabPane>
         </Tabs>
-      </DefaultLayout>
+      </DefaultLayout1>
     </div>
   )
 }

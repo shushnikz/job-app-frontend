@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Button, Col, Form, Input, Row, Select, Tabs } from 'antd'
-import DefaultLayout from '../components/DefaultLayout'
 import { Option } from 'antd/es/mentions';
 import { useDispatch } from 'react-redux';
 import { postJobs } from '../redux/actions/jobActions';
+import DefaultLayout1 from '../components/DefaultLayout1';
 const { TextArea } = Input;
 const { TabPane } = Tabs;
 
@@ -25,7 +25,7 @@ function PostJob() {
   }
   return (
     <div>
-      <DefaultLayout>
+      <DefaultLayout1>
         <Tabs defaultActiveKey='0' activeKey={activeTab}>
           <TabPane tab="Job Info" key="0">
             <Form layout="vertical" onFinish={onFirstFormFinish}>
@@ -120,7 +120,7 @@ function PostJob() {
             </Form>
           </TabPane>
         </Tabs>
-      </DefaultLayout>
+      </DefaultLayout1>
     </div>
   )
 }

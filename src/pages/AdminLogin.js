@@ -1,29 +1,29 @@
-import { Button, Col, Form, Input, Row } from 'antd'
 import React from 'react'
+import { Button, Col, Form, Input, Row } from 'antd'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { loginUser } from '../redux/actions/userActions'
+import { loginAdmin } from '../redux/actions/adminActions'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init();
 
+function AdminLogin() {
 
-function Login() {
     const dispatch = useDispatch()
 
-    function login(values) {
-        dispatch(loginUser(values))
+    function signin(values) {
+        dispatch(loginAdmin(values))
     }
-    return (
-        <div className="login">
 
+    return (
+        <div className='login'>
             <Row justify='center' className="flex align-items-center">
                 <Col lg={5}><h1 className="heading1" data-aos="slide-left">Find</h1></Col>
                 <Col lg={10} sm={24} className="bs p-5 login-form">
-                    <h3>Login Page</h3>
+                    <h3>Admin Page</h3>
                     <hr />
-                    <Form layout="vertical" onFinish={login} >
+                    <Form layout="vertical" onFinish={signin} >
                         <Form.Item label="username" name="username" rules={[{ required: true }]}>
                             <Input />
                         </Form.Item>
@@ -32,12 +32,12 @@ function Login() {
                         </Form.Item>
                         <Button className="mb-3" htmlType='submit'>Login</Button>
                         <br></br>
-                        <Link to="/register">Not registered? Click here to register</Link>
+                        <Link to="/login">Not registered? Click here to user login</Link>
                         <br />
-                        <Link to="/admin">Click here to login to admin page</Link>
+                        <Link to="/register">Click here to login to user register page</Link>
                         <br />
-                        <p>Username: John</p>
-                        <p>Password: john123</p>
+                        <p>Username: admin</p>
+                        <p>Password: admin123</p>
                     </Form>
                 </Col>
                 <Col lg={5}><h1 className="heading2" data-aos="slide-right">Jobs</h1></Col>
@@ -46,4 +46,4 @@ function Login() {
     )
 }
 
-export default Login
+export default AdminLogin
